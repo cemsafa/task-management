@@ -1,6 +1,7 @@
 const winston = require("winston");
 require("winston-mongodb");
 require("express-async-errors");
+
 module.exports = function () {
   winston.add(
     new winston.transports.File({
@@ -9,6 +10,7 @@ module.exports = function () {
       handleRejections: true,
     })
   );
+
   winston.add(
     new winston.transports.MongoDB({
       db: "mongodb://127.0.0.1/tasks",
@@ -18,6 +20,7 @@ module.exports = function () {
       },
     })
   );
+
   winston.add(
     new winston.transports.Console({
       format: winston.format.combine(
