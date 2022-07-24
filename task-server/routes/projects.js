@@ -18,7 +18,7 @@ router.get("/:id", validateObjectId, async (req, res) => {
   res.send(project);
 });
 
-router.post("/", [auth, validator(validate)], async (req, res) => {
+router.post("/", [auth, admin, validator(validate)], async (req, res) => {
   const project = new Project({
     name: req.body.name,
     description: req.body.description,

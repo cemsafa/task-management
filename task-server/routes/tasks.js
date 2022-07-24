@@ -19,7 +19,7 @@ router.get("/:id", validateObjectId, async (req, res) => {
   res.send(task);
 });
 
-router.post("/", [auth, validator(validate)], async (req, res) => {
+router.post("/", [auth, admin, validator(validate)], async (req, res) => {
   const project = await Project.findById(req.body.projectId);
   if (!project) return res.status(400).send("Invalid project.");
 

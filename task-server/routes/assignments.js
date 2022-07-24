@@ -23,7 +23,7 @@ router.get("/:id", [auth, validateObjectId], async (req, res) => {
   res.send(assignment);
 });
 
-router.post("/", [auth, validator(validate)], async (req, res) => {
+router.post("/", [auth, admin, validator(validate)], async (req, res) => {
   const member = await Member.findById(req.body.memberId);
   if (!member) return res.status(400).send("Invalid member.");
 
