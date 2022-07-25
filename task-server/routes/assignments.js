@@ -2,6 +2,7 @@ const { Assignment, validate } = require("../models/assignment");
 const { Task } = require("../models/task");
 const { Member } = require("../models/member");
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const validateObjectId = require("../middleware/validateObjectId");
 const validator = require("../middleware/validate");
 const Fawn = require("fawn");
