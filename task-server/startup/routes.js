@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const error = require("../middleware/error");
 const projects = require("../routes/projects");
 const members = require("../routes/members");
@@ -9,6 +10,7 @@ const auth = require("../routes/auth");
 const completes = require("../routes/completes");
 
 module.exports = function (app) {
+  app.use(cors());
   app.use(express.json());
   app.use("/api/projects", projects);
   app.use("/api/members", members);
